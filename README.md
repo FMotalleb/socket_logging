@@ -8,6 +8,7 @@ but as its a logging solution i will not recommend to use `http requests`
 ## server cli
 
 > for debugging purposes only
+
 type in cmd/terminal:
 
 ```bash
@@ -19,4 +20,4 @@ a websocket server on your machine
 
 todo:
 
-- [ ] handel web socket instances internally
+- [ ] handle web socket instances internally
