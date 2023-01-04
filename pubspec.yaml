@@ -1,6 +1,6 @@
 name: socket_logging
 description: cross-platform web socket logging solution
-version: 1.0.0
+version: 1.0.0+1
 homepage: https://github.com/FMotalleb
 
 environment:
