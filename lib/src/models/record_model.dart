@@ -109,6 +109,30 @@ class LogRecordModel implements LogRecord {
 
   String toJson() => json.encode(toMap());
 
+  String toFormattedString() {
+    final buffer = StringBuffer();
+    buffer.writeln('Record Time: ${time.toIso8601String()}');
+    buffer.write('[$level]');
+    if (loggerName.isNotEmpty == true) {
+      buffer.write('<$loggerName>');
+    }
+    buffer.write(':\n\t');
+    buffer.writeln(message.replaceAll('\n', '\n\t'));
+    for (final key in ['object', 'error', 'stack_trace', 'sequence_number', 'zone']) {
+      if (key.isNotEmpty == true) {
+        buffer.writeln('Attached $key:\n\t${key.replaceAll('\n', '\n\t')}');
+      }
+    }
+
+    if (metaData.isNotEmpty) {
+      buffer.writeln('MetaData:');
+      for (final i in metaData.entries) {
+        buffer.writeln('\t#${i.key}: \t${i.value.toString().replaceAll('\n', '\n\t\t')}');
+      }
+    }
+    return buffer.toString();
+  }
+
   @override
   String toString() {
     return 'RecordModel(error: $error, level: $level, loggerName: $loggerName, message: $message, object: $object, sequenceNumber: $sequenceNumber, stackTrace: $stackTrace, time: $time, zone: $zone, metaData: $metaData)';

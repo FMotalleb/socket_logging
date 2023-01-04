@@ -1,0 +1,5 @@
+enum LogMode {
+  json,
+  raw,
+  ;
+}
