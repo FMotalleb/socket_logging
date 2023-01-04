@@ -113,7 +113,13 @@ class _LogRecordModel implements LogRecord {
     }
     buffer.write(':\n\t');
     buffer.writeln(message.replaceAll('\n', '\n\t'));
-    for (final key in ['object', 'error', 'stack_trace', 'sequence_number', 'zone']) {
+    for (final key in [
+      'object',
+      'error',
+      'stack_trace',
+      'sequence_number',
+      'zone',
+    ]) {
       if (key.isNotEmpty == true) {
         buffer.writeln('Attached $key:\n\t${key.replaceAll('\n', '\n\t')}');
       }
@@ -122,7 +128,9 @@ class _LogRecordModel implements LogRecord {
     if (metaData.isNotEmpty) {
       buffer.writeln('MetaData:');
       for (final i in metaData.entries) {
-        buffer.writeln('\t#${i.key}: \t${i.value.toString().replaceAll('\n', '\n\t\t')}');
+        buffer.writeln(
+          '\t#${i.key}: \t${i.value.toString().replaceAll('\n', '\n\t\t')}',
+        );
       }
     }
     return buffer.toString();
