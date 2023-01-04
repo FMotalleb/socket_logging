@@ -1,12 +1,14 @@
 library socket_logging.logger;
 
 import 'dart:async';
+import 'dart:convert';
 import 'dart:developer';
 
 import 'package:logging/logging.dart';
 import 'package:socket_logging/socket_logging.dart';
 
 import 'log_modes.dart';
+part '../models/record_model.dart';
 
 class SocketLogger {
   /// instance of socket logger
@@ -58,16 +60,16 @@ class SocketLogger {
   Map<String, dynamic> metaData = {};
 
   @pragma("vm:prefer-inline")
-  LogRecordModel _modelParser(
+  _LogRecordModel _modelParser(
     LogRecord record,
   ) =>
-      LogRecordModel.fromLogRecord(
+      _LogRecordModel.fromLogRecord(
         record,
         metaData: metaData,
       );
 
   @pragma("vm:prefer-inline")
-  Future<void> _record(LogRecordModel record) async {
+  Future<void> _record(_LogRecordModel record) async {
     if (socketConnectionGetter == null) {
       return;
     }
