@@ -1,11 +1,6 @@
-library socket_logging.models;
+part of '../logger/socket_logger.dart';
 
-import 'dart:async';
-import 'dart:convert';
-
-import 'package:logging/logging.dart';
-
-class LogRecordModel implements LogRecord {
+class _LogRecordModel implements LogRecord {
   @override
   final Object? error;
 
@@ -33,7 +28,7 @@ class LogRecordModel implements LogRecord {
   @override
   final Zone? zone;
   final Map<String, dynamic> metaData;
-  LogRecordModel({
+  _LogRecordModel({
     this.error,
     required this.level,
     required this.loggerName,
@@ -45,7 +40,7 @@ class LogRecordModel implements LogRecord {
     this.zone,
     this.metaData = const {},
   });
-  LogRecordModel.fromLogRecord(
+  _LogRecordModel.fromLogRecord(
     LogRecord record, {
     this.metaData = const {},
   })  : error = record.error,
@@ -57,7 +52,7 @@ class LogRecordModel implements LogRecord {
         stackTrace = record.stackTrace,
         time = record.time,
         zone = record.zone;
-  LogRecordModel copyWith({
+  _LogRecordModel copyWith({
     Object? error,
     Level? level,
     String? loggerName,
@@ -68,7 +63,7 @@ class LogRecordModel implements LogRecord {
     DateTime? time,
     Zone? zone,
   }) {
-    return LogRecordModel(
+    return _LogRecordModel(
       error: error ?? this.error,
       level: level ?? this.level,
       loggerName: loggerName ?? this.loggerName,
@@ -142,7 +137,7 @@ class LogRecordModel implements LogRecord {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
 
-    return other is LogRecordModel &&
+    return other is _LogRecordModel &&
         other.error == error &&
         other.level == level &&
         other.loggerName == loggerName &&
