@@ -19,4 +19,4 @@ a websocket server on your machine
 
 todo:
 
-[] - handel web socket instances internally
+- [ ] handel web socket instances internally
