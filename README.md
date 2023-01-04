@@ -1,39 +1,22 @@
-<!-- 
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+this is an extension for [`logging`](https://pub.dev/packages/logging) package provided by [`dart.dev`](https://pub.dev/publishers/dart.dev/packages)
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages). 
+built to make logging using web sockets easier
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages). 
--->
+this package can be extended to use `http request` instead of socket connection
+but as its a logging solution i will not recommend to use `http requests`
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+## server cli
 
-## Features
+> for debugging purposes only
+type in cmd/terminal:
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
-
-## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
-
-## Usage
-
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
-
-```dart
-const like = 'sample';
+```bash
+dart pub global activate socket_logging
 ```
 
-## Additional information
+then this will activate `log_server` command that can be used to serve
+a websocket server on your machine
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+todo:
+
+[] - handel web socket instances internally
