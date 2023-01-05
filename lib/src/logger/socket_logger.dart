@@ -7,7 +7,7 @@ import 'dart:developer';
 import 'package:logging/logging.dart';
 import 'package:socket_logging/socket_logging.dart';
 
-import 'log_modes.dart';
+export 'log_modes.dart';
 part '../models/record_model.dart';
 
 class SocketLogger {

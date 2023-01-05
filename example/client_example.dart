@@ -1,9 +1,7 @@
-import 'dart:developer';
 import 'dart:io';
 
 import 'package:logging/logging.dart';
 import 'package:socket_logging/socket_logging.dart';
-import 'package:socket_logging/src/logger/log_modes.dart';
 
 void main() async {
   WebSocket client = await WebSocket.connect(
