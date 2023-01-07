@@ -133,7 +133,9 @@ class _LogRecordModel implements LogRecord {
     ]) {
       final effectiveValue = (map[key] ?? '').toString();
       if (effectiveValue.isNotEmpty) {
-        buffer.writeln('Attached $key:\n\t${effectiveValue.replaceAll('\n', '\n\t')}');
+        buffer.writeln(
+          'Attached $key:\n\t${effectiveValue.replaceAll('\n', '\n\t')}',
+        );
       }
     }
 
