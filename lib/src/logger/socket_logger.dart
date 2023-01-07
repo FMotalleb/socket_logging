@@ -1,11 +1,26 @@
 library socket_logging.logger;
 
-import 'dart:async';
+import 'dart:async' //
+    show
+        Future,
+        Zone;
 import 'dart:convert';
-import 'dart:developer';
+import 'dart:developer' //
+    show
+        log;
 
-import 'package:logging/logging.dart';
-import 'package:socket_logging/socket_logging.dart';
+import 'package:logging/logging.dart' //
+    show
+        Level,
+        LogRecord,
+        Logger;
+
+import 'package:socket_logging/src/socket/_base_socket.dart' //
+    show
+        SocketConnection;
+import 'log_modes.dart' //
+    show
+        LogMode;
 
 export 'log_modes.dart';
 part '../models/record_model.dart';
