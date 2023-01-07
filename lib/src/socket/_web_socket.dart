@@ -1,9 +1,12 @@
-import 'dart:html';
+import 'dart:html' show WebSocket;
+
+import 'package:meta/meta.dart';
 
 import '_base_socket.dart' as base;
 
 /// this class is example of Socket connection using [WebSocket]html which is not
 /// accessible in platforms other than web
+@internal
 class SocketConnection extends base.SocketConnection<WebSocket> {
   SocketConnection(
     super.socket,

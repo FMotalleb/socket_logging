@@ -1,5 +1,5 @@
 /// this abstract class used to provide cross-platform socket-connection to logger
-abstract class SocketConnection<T extends Object?> {
+abstract class SocketConnection<T extends Object> {
   /// socket connection
   final T socket;
 
