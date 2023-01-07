@@ -76,6 +76,16 @@ class _LogRecordModel implements LogRecord {
     );
   }
 
+  LogRecord toLogRecord() => LogRecord(
+        level,
+        message,
+        loggerName,
+        error,
+        stackTrace,
+        zone,
+        object,
+      );
+
   Map<String, dynamic>? _tryToMap(Object? item) {
     if (item == null) return null;
 
@@ -113,6 +123,7 @@ class _LogRecordModel implements LogRecord {
     }
     buffer.write(':\n\t');
     buffer.writeln(message.replaceAll('\n', '\n\t'));
+    final map = toMap();
     for (final key in [
       'object',
       'error',
@@ -120,8 +131,9 @@ class _LogRecordModel implements LogRecord {
       'sequence_number',
       'zone',
     ]) {
-      if (key.isNotEmpty == true) {
-        buffer.writeln('Attached $key:\n\t${key.replaceAll('\n', '\n\t')}');
+      final effectiveValue = (map[key] ?? '').toString();
+      if (effectiveValue.isNotEmpty) {
+        buffer.writeln('Attached $key:\n\t${effectiveValue.replaceAll('\n', '\n\t')}');
       }
     }
 
