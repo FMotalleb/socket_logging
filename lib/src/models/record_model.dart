@@ -1,5 +1,6 @@
 part of '../logger/socket_logger.dart';
 
+@immutable
 class _LogRecordModel implements LogRecord {
   @override
   final Object? error;

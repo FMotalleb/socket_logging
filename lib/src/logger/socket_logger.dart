@@ -14,6 +14,7 @@ import 'package:logging/logging.dart' //
         Level,
         LogRecord,
         Logger;
+import 'package:meta/meta.dart';
 
 import 'package:socket_logging/src/socket/_base_socket.dart' //
     show
